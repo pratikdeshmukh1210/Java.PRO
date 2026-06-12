@@ -1,42 +1,120 @@
 import java.util.*;
 
-class Main {
+//  constructor
+//  three type of constuctor
+// 1.defult con. 2.No Args con. 3.parameteristed constructor
+
+ /* class Main{
+
+    // 1 defult con.
+
+    int a = 12 ;
     public static void main(String[] args) {
-
-        int start[] = {0, 1, 3, 5, 5, 8};
-        int end[] = {6, 2, 4, 7, 9, 9};
-
-        int activities[][] = new int[start.length][3];
-
-        // fill array
-        for (int i = 0; i < start.length; i++) {
-            activities[i][0] = i;
-            activities[i][1] = start[i];
-            activities[i][2] = end[i];
-        }
-
-        // sort by end time
-        Arrays.sort(activities, Comparator.comparingDouble(o -> o[2]));
-
-        int maxAct = 1;
-        ArrayList<Integer> ans = new ArrayList<>();
-
-        // first activity
-        ans.add(activities[0][0]);
-        int lastEnd = activities[0][2];
-
-        for (int i = 1; i < activities.length; i++) {
-            if (activities[i][1] >= lastEnd) {
-                maxAct++;
-                ans.add(activities[i][0]);
-                lastEnd = activities[i][2];
-            }
-        }
-
-        System.out.println("Max Activities = " + maxAct);
-
-        for (int i = 0; i < ans.size(); i++) {
-            System.out.print("A" + ans.get(i) + " ");
-        }
+      Main obj1 = new Main();
+        System.out.println(obj1.a) ;
     }
-}
+} */
+
+//  2.NoArgs constuctor
+ /* class Main{
+    int num1;
+    int num2;
+  Main(){
+ num1 = 12 ;
+ num2 = 23 ;
+  }
+    public static void main(String[] args) {
+        Main obj = new Main() ;
+        System.out.println(obj.num1);
+        System.out.println(obj.num2);
+
+    }
+} */
+
+// paramterister constructor
+ /* class Main{
+    int a ;
+    int b ;
+    Main(int  c, int d){
+    a = c ;
+    b = d ;
+    }
+    public static void main(String[] args) {
+Main obj1 = new Main(12,13) ;
+        System.out.println(obj1.a);
+        System.out.println(obj1.b);
+
+    }
+} */
+
+ /// construtor overloading and constructor chaning
+//  Ek hi class me same naam ke multiple constructors ho, lekin parameter list alag ho.
+  /* class Main{
+    String name ;
+    int age ;
+    Main(){
+        this.name = "Defult" ;
+        this.age = 0 ;
+    }
+    Main(String name){
+        this.name = name ;
+        this.age = 0 ;
+    }
+     Main(int age){
+
+         this.age = age;
+     }
+     Main(String name ,int age){
+        this.name = name ;
+        this.age = age ;
+     }
+     public void printDetails() {
+         System.out.println("Name : " + this.name);
+         System.out.println("Age : " + this.age);
+     }
+     public static void main(String[] args) {
+         Main std1 = new Main() ;
+         Main std2 = new Main("pratik") ;
+         Main std4 = new Main(18) ;
+         Main std3 = new Main("sanyog",16) ;
+
+    std1.printDetails();
+    std2.printDetails();
+    std4.printDetails();
+    std3.printDetails();
+    }}
+  */
+
+///  constructor chaning
+class Main{
+    String name ;
+    int age ;
+    Main(){
+        this("as") ;
+    }
+    Main(String name){
+        this(name,0) ;
+    }
+    Main(int age){
+
+        this("defult",age) ;
+    }
+    Main(String name ,int age){
+        this.name = name ;
+        this.age = age ;
+    }
+    public void printDetails() {
+        System.out.println("Name : " + this.name);
+        System.out.println("Age : " + this.age);
+    }
+    public static void main(String[] args) {
+        Main std1 = new Main() ;
+        Main std2 = new Main("pratik") ;
+        Main std4 = new Main(18) ;
+        Main std3 = new Main("sanyog",16) ;
+
+        std1.printDetails();
+        std2.printDetails();
+        std4.printDetails();
+        std3.printDetails();
+    }}
